@@ -1,7 +1,6 @@
 import axios from "axios";
 import Navbar from "../components/Navbar";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Newbeer = (props) => {
     const [name, setName] = useState('')
@@ -14,8 +13,6 @@ const Newbeer = (props) => {
 
     const body = { name, tagline, description, first_brewed, brewers_tips, attentuation_level, contributed_by }
 
-    console.log(body)
-
     function onSubmit(e) {
         e.preventDefault()
         axios.post('https://ih-beers-api2.herokuapp.com/beers/new', body)
@@ -23,6 +20,7 @@ const Newbeer = (props) => {
             console.log(res)
         })
     }
+
   return (
     <div>
       <Navbar />
